@@ -128,13 +128,26 @@ You are encouraged to make "less" part of your standard command line toolkit.
 Did you remember to save "m1-introduction-to-tools-exercise.txt"?
 
 $ git status
-<type or copy-paste the result here>
+<Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)>
 
 $ git add .
-<type or copy-paste the result here>
+<Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   ../introduction-to-tools-exercises.txt>
 
 $ git commit -m "Good stopping point"
-<type or copy-paste the result here>
+<1 file changed, 12 insertions(+), 7 deletions(-)
+TechelersAir136:java-helloworld mohamedyehia$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+>
 
 Note, you do not need to push this commit up to BitBucket. The typical Git 
 workflow is to many small commits to your local repo, with pushes up to 
@@ -147,16 +160,14 @@ BitBucket when a feature, fix, or in this case, assignment is finished.
 ----
 
 $ cd src/main/java/com/techelevator
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
-
+$ </Users/mohamedyehia/workspace/exercises/01-intro-to-tools-exercises/java-helloworld/src/main/java/com/techelevator>
 
 ----
 11. Does the change directory command in Exercise 10 use a relative, or absolute
     path?
 ----
 
-<type your answer here>
+<absolute>
 
 
 ----
@@ -164,8 +175,10 @@ $ <enter command to display present working directory>
     your present working directory.
 ----
 
-$ <enter command to list all files and folders including dot-files and dot-folders>
-<type or copy-paste the result here>
+$ <ls -la>
+<drwxr-xr-x  3 mohamedyehia  staff  102 May 21 15:34 .
+drwxr-xr-x  3 mohamedyehia  staff  102 May 21 15:34 ..
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 15:34 Helloworld.java>
 
 
 ----
@@ -179,8 +192,12 @@ $ cp Helloworld.java Helloworld.java.backup
 The "cp" parameters are the name of the source file followed by the name of the 
 destination file. 
 
-$ <enter command to list all files and folders in order to confirm the creation of the backup file>
-<type or copy-paste the result here>
+$ <ls -la>
+<total 16
+drwxr-xr-x  4 mohamedyehia  staff  136 May 21 17:02 .
+drwxr-xr-x  3 mohamedyehia  staff  102 May 21 15:34 ..
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 15:34 Helloworld.java
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 17:02 Helloworld.java.back>
 
 
 ----    
@@ -193,8 +210,12 @@ $ mv Helloworld.java.backup Helloworld.java.copy
 The "mv" parameters are the existing name of the file followed by the new name 
 of the file. 
 
-$ <enter command to list all files and folders in order to confirm the renaming of the file>
-<type or copy-paste the result here>
+$ <ls -la>
+<total 16
+drwxr-xr-x  4 mohamedyehia  staff  136 May 21 17:02 .
+drwxr-xr-x  3 mohamedyehia  staff  102 May 21 15:34 ..
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 15:34 Helloworld.java
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 17:02 Helloworld.java.back>
 
 
 ----
@@ -202,17 +223,45 @@ $ <enter command to list all files and folders in order to confirm the renaming 
     commit to the local repository, but also push it up to BitBucket. 
 ----
 
-$ <enter the Git command to display status>
-<type or copy-paste the result here>
+$ <git status>
+<On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
 
-$ <enter the Git command to "stage" all changes>
-<type or copy-paste the result here>
+	Helloworld.java.back
 
-$ <enter the Git command to save all "staged" changes>
-<type or copy-paste the result here>
+nothing added to commit but untracked files present (use "git add" to track)>
+
+$ <git add .>
+<tOn branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   Helloworld.java.back>
+
+$ <git commit -m'first commit'>
+<master 9ec5350] first commit
+ 1 file changed, 9 insertions(+)
+ create mode 100755 01-intro-to-tools-exercises/java-helloworld/src/main/java/com/techelevator/Helloworld.java.back
+TechelersAir136:techelevator mohamedyehia$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+>
 
 $ git push
-<type or copy-paste the result here>
+<Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (13/13), 1.20 KiB | 0 bytes/s, done.
+Total 13 (delta 5), reused 0 (delta 0)
+To https://bitbucket.org/te-cle-cohort-8/MohamedYehia-java-exercises
+   54b0f55..9ec5350  master -> master>
 
 
 ----
@@ -223,8 +272,12 @@ $ rm Helloworld.java.copy
 
 The "rm" parameter is the name of the file to be deleted.
 
-$ <enter command to list all files and folders in order to confirm the file deletion>
-<type or copy-paste the result here>
+$ <ls -la>
+<total 16
+drwxr-xr-x  4 mohamedyehia  staff  136 May 21 17:02 .
+drwxr-xr-x  3 mohamedyehia  staff  102 May 21 15:34 ..
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 15:34 Helloworld.java
+-rwxr-xr-x  1 mohamedyehia  staff  141 May 21 17:02 Helloworld.java.back>
 
 
 ----
@@ -245,8 +298,8 @@ command line when that seems natural.
 
 Regardless of the option you chose, check your new location.
 
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ <pwd>
+</Users/mohamedyehia/workspace/exercises/01-intro-to-tools-exercises/java-helloworld/src/main/java/com/techelevator>
 
 
 ----
@@ -255,9 +308,9 @@ $ <enter command to display present working directory>
 ----
 
 $ mkdir docs
-$ <enter the command to change directory to "docs" using a relative path>
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ <cd docs>
+$ <pwd>
+</Users/mohamedyehia/workspace/exercises/01-intro-to-tools-exercises/java-helloworld/src/main/java/com/techelevator/docs>
 
 ----
 19. Create a new file name "readme.txt" using Visual Studio Code, and add the text
@@ -274,10 +327,40 @@ Don't forget to save the file in Visual Studio Code!
     work so it can be reviewed by an instructor.
 ----
 
-$ <enter the Git command to display status>
+$ <git status>
 
-$ <enter the Git command to "stage" all changes>
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
-$ <enter the Git command to save all "staged" changes>
+	new file:   frank.txt
+	new file:   readme.txt
+	new file:   what is this
 
-$ <enter the Git command to save local repository to BitBucket>
+$ <git add .>
+git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   frank.txt
+	new file:   readme.txt
+	new file:   what is this
+
+$ <git commit -m'first commit'>
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+$ <git push>
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (13/13), 812 bytes | 0 bytes/s, done.
+Total 13 (delta 4), reused 0 (delta 0)
+To https://bitbucket.org/te-cle-cohort-8/MohamedYehia-java-exercises
+   9ec5350..cb99a0f  master -> master
+

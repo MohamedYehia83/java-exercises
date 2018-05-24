@@ -10,7 +10,10 @@ public class Exercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		if(nums[0]==6 || nums[nums.length-1]==6)
+			return true;
+		else
+			return false;
 	}
 
 	/*
@@ -21,7 +24,10 @@ public class Exercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+		if(nums[0]==nums[nums.length-1])
+			return true;
+		
+		else return false;
 	}
 
 	/*
@@ -29,7 +35,11 @@ public class Exercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		int[] newArray = new int[3];
+		newArray[0] = 3;
+		newArray[1] = 1;
+		newArray[2] = 4;
+		return newArray;
 	}
 
 	/*
@@ -40,7 +50,10 @@ public class Exercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+		
+		if (a[0]==b[0] || a[a.length-1]==b[b.length-1])
+		return true;
+		else return false;
 	}
 
 	/*
@@ -50,7 +63,11 @@ public class Exercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+		int sumOfNum=0;
+	
+		for(int i=0; i<nums.length; i++)
+			sumOfNum+=nums[i];
+		return sumOfNum;
 	}
 
 	/*
@@ -61,9 +78,18 @@ public class Exercises {
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		int[] newNums = new int[nums.length];
+		for (int i =0; i<nums.length; i++) {
+			if (i==0) {
+				newNums[nums.length-1]=nums[i];
+			}
+			else {
+				newNums[i-1] = nums[i];
+			}
+		}
+		return newNums;
 	}
-
+	
 	/*
 	 7. Given an array of ints length 3, return a new array with the elements in reverse order, so 
 	 {1, 2, 3} becomes {3, 2, 1}.
@@ -83,7 +109,19 @@ public class Exercises {
 	 maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return new int[] {};
+		int i =0;
+		
+		if (nums[0] > nums[2]) for (i = 0; i < nums.length; i++)
+								{
+								nums[i] = nums[0]; 
+								}
+		else
+			for (i = 0; i < nums.length; i++)
+			{
+			nums[i] = nums[2]; 
+			}			
+		
+		return nums;
 	}
 
 	/*
