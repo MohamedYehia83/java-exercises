@@ -262,7 +262,13 @@ public class Exercises {
 	 dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
-		return 0;
+		if (you <= 2 || date <= 2) return 0;
+
+		else if (you >= 8 || date >= 8) return 2;
+		else if ((2 < you && you < 8) || (2 < date && date < 8))
+		 return 1;
+		else return 0;
+	
 	}
 
 	/*
@@ -366,9 +372,9 @@ public class Exercises {
 	 */
 	public boolean in1To10(int n, boolean outsideMode) {
 	
-		
-		if ((n >= 1) && (n <= 10)) && (outsideMode == false)) return true; 
-		else if ((n <= 1) && (n >= 10)) && (outsideMode == true)) return true;
+		 if (((n <= 1) || (n >= 10)) && (outsideMode == true)) return true;
+
+		 else if ((n >= 1) && (n <= 10) && (outsideMode == false)) return true; 
 		
 		else return false;
 	}
@@ -413,7 +419,12 @@ public class Exercises {
 	 old35(15) → false
 	 */
 	public boolean old35(int n) {
-		return false;
+		if ((n % 3 == 0) ^ (n % 5 == 0)) {
+			return true;
+		}
+		
+		
+		else return false;
 	}
 
 	/*
@@ -425,7 +436,11 @@ public class Exercises {
 	 less20(20) → false
 	 */
 	public boolean less20(int n) {
-		return false;
+		if ((((n + 1) % 20 == 0 || (((n + 2) % 20)) == 0))) {
+			return true;
+		}
+		
+		else return false;
 	}
 
 	/*
@@ -436,9 +451,19 @@ public class Exercises {
 	 nearTen(19) → true
 	 */
 	public boolean nearTen(int num) {
-		return false;
-	}
-
+		if (num % 10 == 0) {
+			return true;
+		}
+			else if (((num - 2) % 10 == 0) || (num - 1) % 10 == 0) {
+			return true;
+		}
+			else if (((num + 2) % 10 == 0) || ((num + 1) % 10 == 0))
+				return true;
+		
+			else return false;
+		}
+	
+	
 	/*
 	 28. Given 2 ints, a and b, return their sum. However, "teen" values in the range 13..19 inclusive, are 
 	 extra lucky. So if either value is a teen, just return 19.
@@ -447,7 +472,11 @@ public class Exercises {
 	 teenSum(13, 2) → 19
 	 */
 	public int teenSum(int a, int b) {
-		return 0;
+		
+		int sum = (a + b);
+			if (a >= 13 && a <= 19 || b >= 13 && b<= 19) return 19;
+			
+			else return sum;
 	}
 
 	/*
@@ -458,7 +487,18 @@ public class Exercises {
 	 answerCell(true, false, false) → false
 	 */
 	public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-		return false;
+		if (isAsleep) 
+			 return false;
+
+		else if (isMom) 
+			return true;
+
+		else if (isMorning) 
+		
+		 return false;
+		
+		else return true;
+		 
 	}
 
 	/*
@@ -471,7 +511,10 @@ public class Exercises {
 	 teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		return 0;
+		if (tea < 5 || candy < 5) return 0;
+		else if (tea >= (candy * 2) || candy >= (tea * 2)) return 2;
+		else if (tea >= 5 && candy >= 5) return 1;
+		else return 0;
 	}
 
 	/*
@@ -481,7 +524,12 @@ public class Exercises {
 	 twoAsOne(3, 2, 2) → false
 	 */
 	public boolean twoAsOne(int a, int b, int c) {
-		return false;
+	
+		if (a + b == c) return true;
+		else if (a + c == b) return true;
+		else if (b + c == a) return true;
+
+		else return false;
 	}
 
 	/*
@@ -492,7 +540,11 @@ public class Exercises {
 	 inOrder(1, 1, 2, true) → true
 	 */
 	public boolean inOrder(int a, int b, int c, boolean bOk) {
-		return false;
+		
+		if (b > a && c > b && bOk == false) return true;
+		else if (b <= a && c > b && bOk == true) return true;
+
+		else return false;
 	}
 
 	/*
@@ -504,7 +556,15 @@ public class Exercises {
 	 inOrderEqual(5, 5, 7, true) → true
 	 */
 	public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
-		return false;
+		
+		if (equalOk) {
+			if(a <= b && b <= c) 
+				
+				return true;
+			else return false;} 
+		else if (a < b && b < c)
+			return true;
+		else return false;
 	}
 
 	/*
@@ -515,8 +575,14 @@ public class Exercises {
 	 loneSum(3, 3, 3) → 0
 	 */
 	public int loneSum(int a, int b, int c) {
-		return 0;
+		int sum = a + b + c;
+		 if (a == b && b == c && a == c) return 0;
+		 else if (c == a) return b;
+		else if (a == b) return c;
+		else if (b == c) return a;
+		else return sum;
 	}
+	
 
 	/*
 	 35. Given 3 int values, a b c, return their sum. However, if one of the values is 13 then it does not 
@@ -529,7 +595,17 @@ public class Exercises {
 	 luckySum(13, 13, 3) → 0
 	 */
 	public int luckySum(int a, int b, int c) {
-		return 0;
+		
+		int sum = a + b + c;
+		if (a != 13 && b != 13 && c != 13) return sum;   
+		else if (a != 13 && b != 13 && c == 13) return a + b;
+		else if (a != 13 && b == 13 && c != 13) return a ;
+		else if (a == 13 && b != 13 && c != 13) return c;
+		else if (a == 13 && b == 13 && c != 13) return 0;
+
+		
+		
+		else return 0;
 	}
 
 }
