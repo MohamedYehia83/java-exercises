@@ -122,9 +122,7 @@ public class Exercises {
 	 oddOnly( {1143, 555, 7, 1772, 9953, 643} ) -> [1143, 555, 7, 9953, 643]
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
-	//loop through with for each
-		//if each is odd, then add to new array
-	//return array
+	
 
 	public List<Integer> oddOnly(Integer[] integerArray) {
 
