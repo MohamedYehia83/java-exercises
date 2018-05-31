@@ -12,9 +12,9 @@ public class Exercises {
 	 */
 	public String helloName(String name) {
 		
-		System.out.println("Hello " + name + "!");
+		String greetingStr = "Hello " + name + "!";
 		
-		return null;
+		return greetingStr;
 	}
 
 	/*
@@ -26,9 +26,9 @@ public class Exercises {
 	 */
 	public String makeAbba(String a, String b) {
 		
-		System.out.println(a + b + b + a);
+		String abbaResult = (a + b + b + a);
 		
-		return null;
+		return abbaResult;
 		
 	}
 
@@ -119,7 +119,18 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		String shortString = "";
+		String longString = "";
+		
+		if(a.length() > b.length()) {
+			shortString = b;
+			longString = a;
+			
+		} else {
+			shortString = a;
+			longString = b;
+		}
+		return shortString + longString + shortString;
 	}
 	
 	/*
@@ -131,8 +142,7 @@ public class Exercises {
 	 */
 	public String nonStart(String a, String b) {
 		
-		a = "Hello";
-		b = "World";
+		
 		
 		return (a.substring(1) + b.substring(1));
 	}
@@ -141,7 +151,7 @@ public class Exercises {
 	 Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end. 
 	 The string length will be at least 2.
 	 left2("Hello") → "lloHe"
-	 left2("java") → "vaja"
+	 left2("java") → "vaja"         
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
@@ -334,24 +344,24 @@ public class Exercises {
 	 */
 	public String frontTimes(String str, int n) {
 		String strRepeat = "";
-		String frontLettters;
+		String frontLettters="";
 		
 		if (str.length() <=3) {
 					
 		    for (int i = 1; i <= n; i++) {
 			strRepeat += str;
-		} 
-		    return strRepeat;
-		    }
+		    }     
+		}
+		
 		else {
 			frontLettters = str.substring(0, 3);
 			
 			for (int i = 1; i <= n; i++) {
 				strRepeat += frontLettters;
-			
 			}
-			return frontLettters;
+		
 		}
+		return strRepeat;
 	}
 
 	/*
@@ -417,8 +427,13 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String stringSplosion = "";
+		for(int i = 0;i < str.length(); i++) {
+			stringSplosion += str.substring(0, i+1);
+		}
+			return stringSplosion;
 	}
+	
 
 	/*
 	 Given a string, return the count of the number of times that a substring length 2 appears in the string and 
@@ -428,7 +443,13 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		int count = 0;
+		for (int i = 0; i<str.length()-2; i++) {
+			String lastTwoStrings = str.substring(str.length()-2,  str.length());
+			if (str.substring(i, i+2).equals(lastTwoStrings))
+				count++;
+		}
+		return count;
 	}
 
 	/*
@@ -439,7 +460,22 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		
+		String removedX = "";
+		if(str.length() <= 1)
+			return str;
+			
+		for(int i = 0; i < str.length(); i ++) {
+			if(str.charAt(i) != 'x')
+				removedX += str.charAt(i);
+		}
+		if(str.charAt(0)=='x')
+			removedX = "x"+ removedX;
+		
+		if(str.charAt(str.length() - 1)=='x')
+			removedX = removedX + "x";
+		
+		return removedX;
 	}
 
 	/*
@@ -449,7 +485,16 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String skippedChar="";
+		
+		for(int i = 0; i < str.length(); i =+ 4) {
+			skippedChar += str.charAt(i);
+			if(i + 1 < str.length()) {
+				skippedChar += str.charAt(i + 1);
+			}
+		}
+		
+		return skippedChar;
 	}
 
 	/*
@@ -460,7 +505,16 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		
+		String resultYak = str;
+		
+		for (int i = 0; i<str.length()-2; i++) {
+			if (str.charAt(i)=='y' && str.charAt(i+2)=='k')
+				resultYak = str.replace(str.substring(i, i+3), "");
+		}
+		
+		return resultYak;
+		
 	}
 	
 }
