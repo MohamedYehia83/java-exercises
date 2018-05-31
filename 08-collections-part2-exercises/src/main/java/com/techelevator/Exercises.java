@@ -34,7 +34,7 @@ public class Exercises {
 	 * 
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		map<String, String> animalGroupName(Map<String, String> animalName);
 	}
 
 	/*

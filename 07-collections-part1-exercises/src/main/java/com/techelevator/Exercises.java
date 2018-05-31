@@ -26,9 +26,13 @@ public class Exercises {
 	 */
 	public List<String> array2List(String[] stringArray) {
 		
-		List<String> stringArray = new ArrayList<String>();
-		
+		ArrayList<String> array2List = new ArrayList<String>();
+		for (String i : stringArray) {
+		array2List.add(i);
 		}
+		return array2List;
+		}
+		
 	
 	
 	/*
@@ -38,12 +42,13 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-			
 		
-		for(int i = 0; i < stringList.size(); i++) {
-			System.out.println(stringList.get(i));
+		String[] listToArray = new String[stringList.size()];
+		
+		for (int i = 0; i<stringList.size(); i++) {
+			listToArray[i] = stringList.get(i);
 		}
-		System.out.println(stringList);
+	      	return listToArray;
 
 	}
 	
@@ -55,8 +60,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
-	}
+		ArrayList<String> no4LetterWords = new ArrayList<String>();
+		for (String i : stringArray) {
+			if (i.length() != 4)
+				no4LetterWords.add(i);
+		}
+		return no4LetterWords;
+		}
+	
 
 
 	/*
@@ -68,7 +79,15 @@ public class Exercises {
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
-		return null;
+
+		List<String> reverseList = new ArrayList<String>();
+ 		
+		for (int i = 0; i<stringList.size(); i++) {
+			reverseList.add(0, stringList.get(i));
+			
+		}
+	      	return reverseList;
+
 	}
 
 	/*
@@ -78,7 +97,13 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> arrayList = new ArrayList<Double>();
+		
+		for (int i : intArray) {
+			arrayList.add(i/2.0);
+		}
+			
+		return arrayList;
 	}
 	
 	/*
@@ -88,7 +113,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		return Collections.max(integerList);
 	}
 	
 	/*
@@ -97,10 +122,25 @@ public class Exercises {
 	 oddOnly( {1143, 555, 7, 1772, 9953, 643} ) -> [1143, 555, 7, 9953, 643]
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
+	//loop through with for each
+		//if each is odd, then add to new array
+	//return array
+
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+
+		List <Integer>oddResults = new ArrayList<Integer>	();		
+
+		for (int counter : integerArray) {
+			if (counter % 2 != 0) {
+				oddResults.add(counter);
+		}
+
 	}
-	
+
+	return oddResults;
+
+}
+
 	/* 
 	 Given a List of Integers, and an int value, return true if the int value appears two or more times in 
 	 the list.
@@ -109,6 +149,17 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		
+		int counter = 0;
+		for (int givenInt : integerList) {
+			if (givenInt == intToFind) {
+				counter++;
+			}
+		}
+		
+		if (counter >= 2) {
+			return true;
+		}
 		return false;
 	}
 	
@@ -125,8 +176,26 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
-	}
+		List <String> newList = new ArrayList <String>();
+		
+		for (int givenInt : integerArray) {
+			if (givenInt % 3 == 0 && givenInt % 5 == 0) {
+				newList.add("FizzBuzz");
+				
+			}else if (givenInt % 3 == 0) {
+				newList.add("Fizz");
+				
+			} else if (givenInt % 5 == 0) {
+					newList.add("Buzz");
+				}
+				else {
+					Integer convertInt = givenInt;
+					newList.add(convertInt.toString());
+					
+				}
+			}
+			return newList;
+		}
 
 	/*
 	 Given a list of Strings, return a list that contains the distinct values. In other words, no value is to be
@@ -135,7 +204,19 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		
+		Set <String> distinctSet = new HashSet <String> ();
+		
+		List <String> distinctList = new ArrayList <String> ();
+		
+		for (String givenString : stringList) {
+			distinctSet.add(givenString);
+		}
+		
+		for (String givenString : distinctSet) {
+			distinctList.add(givenString);
+		}
+		return distinctList;
 	}
 
 	/*
@@ -146,7 +227,28 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> interleaveList = new ArrayList<Integer>();
+		List<Integer> smallerList = new ArrayList<Integer>();
+		List<Integer> largerList = new ArrayList<Integer>();
+		
+		if (listOne.size() > listTwo.size()) {
+			smallerList = listTwo; largerList = listOne;
+		}
+		else {
+			smallerList = listOne; largerList = listTwo;
+		}
+		
+		for (int i = 0; i<smallerList.size(); i++) {
+			interleaveList.add(listOne.get(i));
+			interleaveList.add(listTwo.get(i));
+		}
+		
+		//putting the remainder
+		for (int i =smallerList.size(); i<largerList.size(); i++) {
+			interleaveList.add(largerList.get(i));
+		}
+		
+		return interleaveList;
 	}
 
 	/*
@@ -159,7 +261,30 @@ public class Exercises {
 	 boardingGate( [0, -1, 44, 31, 17, 7, 27, 16, 26, 6] ) -> [7, 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
-		return null;
+		
+		 List<Integer>myList=new ArrayList<Integer>();
+		    for (Integer i : seatNumberList)
+		    {
+		        if (i > 0 && i <=10)
+		        {
+		            myList.add(i);
+		        }
+		    }                                           
+		    for (Integer i : seatNumberList)            
+		    {
+		        if (i>=11&&i<=20)
+		        {
+		            myList.add(i);
+		        }
+		    }
+		    for (Integer i : seatNumberList)
+		    {
+		        if (i>=21&&i<=30)
+		        {
+		            myList.add(i);
+		        }
+		    }
+		        return myList;
 	}
 
 }
