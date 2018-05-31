@@ -1,6 +1,9 @@
 package com.techelevator;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -22,8 +25,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"] 
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
-	}
+		
+		List<String> stringArray = new ArrayList<String>();
+		
+		}
+	
 	
 	/*
 	 Given a list of Strings, return an array containing the same Strings in the same order 
@@ -32,7 +38,13 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+			
+		
+		for(int i = 0; i < stringList.size(); i++) {
+			System.out.println(stringList.get(i));
+		}
+		System.out.println(stringList);
+
 	}
 	
 	/*
