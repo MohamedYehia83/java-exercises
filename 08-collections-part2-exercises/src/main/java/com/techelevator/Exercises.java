@@ -1,6 +1,8 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Exercises {
 
@@ -34,7 +36,17 @@ public class Exercises {
 	 * 
 	 */
 	public String animalGroupName(String animalName) {
-		map<String, String> animalGroupName(Map<String, String> animalName);
+	
+			Map<String, String> animalGroupName = new HashMap<String, String>();
+		
+
+		Set<String> keys = animalGroupName.keySet();		
+		for(String animalName : animalGroupName) {
+			
+		
+		System.out.println("animalGroupName"+"(\" + animalName + \") + "->" +animalName.get(animalGroupName));
+		}
+	
 	}
 
 	/*
@@ -60,7 +72,20 @@ public class Exercises {
 	 * 
 	 */
 	public Double isItOnSale(String itemNumber) {
-		return null;
+		Map<Double, String> discountedItems = new HashMap<Double, String>();
+		double discountPercentage;
+		double isItOnSale;
+		
+		Set<Double> keys = isItOnSale.keySet();		// returns a Set of all of the keys in the Map
+		
+		for(Double isItOnSale : keys) {
+			System.out.println(isItOnSale+ " (discountedItems) -> ".get(discountPercentage));
+			
+		}
+		
+		
+		
+		
 	}
 	
 	/*
