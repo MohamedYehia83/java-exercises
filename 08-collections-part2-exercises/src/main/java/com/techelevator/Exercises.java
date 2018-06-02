@@ -112,7 +112,16 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int petersMoola = 5000;
+		int paulsMoola = 10000;
+		
+		peterPaul.put("paul", PaulsMoola - (paulsMoola) / 4);
+		peterPaul.put("peter", petersMoola - (petersMoola) / 4);
+
+		peterPaul.put("peterPaulPartnership", (petersMoola) / 4) + (PaulsMoola) / 4);
+		
+		
+		return peterPaul;
 	}
 	
 	/*
