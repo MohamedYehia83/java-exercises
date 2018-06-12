@@ -1,99 +1,65 @@
 package com.techelevator;
 
 public class Airplane {
-
+	
 	private String planeNumber;
+    private int availableFirstClassSeats;
+    private int availableCoachSeats;
     private int totalFirstClassSeats;
-    private int bookedFirstClassSeats = 0;
+    private int bookedFirstClassSeats;
     private int totalCoachSeats;
-    private int bookedCoachSeats = 0;
+    private int bookedCoachSeats;
+	
+	
+	public Airplane(String planeNumber, int totalFirstClassSeats, int totalCoachSeats) {
+	        this.planeNumber = planeNumber;
+	        this.totalFirstClassSeats = totalFirstClassSeats;
+	        this.totalCoachSeats = totalCoachSeats;            
+	    }
 
-    /**
-     * Creates a new airplane 
-     * @param totalFirstClassSeats Total number of first class seats that can be booked
-     * @param totalCoachSeats Total number of coach seats that can be booked
-     */
-    public Airplane(int totalFirstClassSeats, int totalCoachSeats) {
-        this.totalFirstClassSeats = totalFirstClassSeats;
-        this.totalCoachSeats = totalCoachSeats;            
-    }
+	    public String getPlaneNumber() {
+	        return planeNumber;        
+	    }
 
-    /**
-     * 6-Character Plane Number 
-     * @return planeNumber
-     */
-    public String getPlaneNumber() {
-        return planeNumber;            
-    }
+	    public int getBookedFirstClassSeats() {
+	        return bookedFirstClassSeats;            
+	    }
 
-    /**
-     * Number of already booked first class seats 
-     * @return bookedFirstClassSeats
-     */
-    public int getBookedFirstClassSeats() {
-        return bookedFirstClassSeats;            
-    }
+	    public int getAvailableFirstClassSeats() {
+	        return totalFirstClassSeats - bookedFirstClassSeats;
+	    }
 
-    /**
-     * Available number of first class seats 
-     * @return availableFirstClassSeats
-     */
-    public int getAvailableFirstClassSeats() {
-        return bookedFirstClassSeats;
-    }
+	    public int getTotalFirstClassSeats() {
+	        return totalFirstClassSeats;        
+	    }
 
-    /**
-     * Total number of first class seats 
-     * @return totalFirstClassSeats
-     */
-    public int getTotalFirstClassSeats() {
-        return totalFirstClassSeats;        
-    }
+	    public int getBookedCoachSeats() {
+	        return bookedCoachSeats;
+	    }
 
-    /**
-     * Number of already booked coach seats 
-     * @return bookedCoachSeats
-     */
-    public int getBookedCoachSeats() {
-        return bookedCoachSeats;
-    }
+	    public int getAvailableCoachSeats() {
+	        return totalCoachSeats - bookedCoachSeats;
+	    }
 
-    /**
-     * Available number of coach seats 
-     * @return availableCoachSeats
-     */
-    public int getAvailableCoachSeats() {
-        return totalCoachSeats;
-    }
+	    public int getTotalCoachSeats() {
+	        return totalCoachSeats;
+	    }
 
-    /**
-     * Total number of coach seats 
-     * @return totalCoachSeats
-     */
-    public int getTotalCoachSeats() {
-        return totalCoachSeats;
-    }
+	    public boolean reserveSeats(boolean firstClass, int totalNumberOfSeats) {
+	        if (firstClass) {
+	            if (totalNumberOfSeats > getAvailableFirstClassSeats()) {
+	                return false;
+	            }
+	            bookedFirstClassSeats = totalNumberOfSeats;
+	        }
+	        else {
+	            if (totalNumberOfSeats > getAvailableCoachSeats()) {
+	                return false;
+	            }
+	            bookedCoachSeats = totalNumberOfSeats;
+	        }
+	        return true;
+	    }
 
-    /**
-     * Reserves a first class or coach seat. Algorithm checks for reservation possiblity before making reservation. 
-     * @param firstClass True if the reservation is for first class, false for coach
-     * @param totalNumberOfSeats Total number of seats to reserve
-     * @return True if reservation was successful, false otherwise
-     */
-    public boolean Reserve(boolean firstClass, int totalNumberOfSeats) {       
-        if (firstClass) {
-            bookedFirstClassSeats += totalNumberOfSeats;
-            if (totalNumberOfSeats > getAvailableFirstClassSeats()) {
-                return false;
-            }
-        }
-        else {
-            bookedCoachSeats += totalNumberOfSeats;
-            if (totalNumberOfSeats > getAvailableCoachSeats()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-}
+	}
+	
