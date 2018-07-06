@@ -18,6 +18,13 @@
 				
 				See exercise2-fibonacci.png for example output
 			 --%>
+		<c:forEach begin="0" end="24" var=[i]>
+		
+		<li ><c:out value="${param.[i] + param.[i+1]}" /></li>
+			
+		</c:forEach>
+		
+		
 		</ul>
 	</body>
 </html>
