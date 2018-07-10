@@ -1,34 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<c:set var="pageTitle" value="Product Tiles View"/>
+	<%@include file="common/header.jspf" %>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-<meta name="viewport" content="width=device-width" />
-<title>Product Tiles View</title>
-<c:url value="/css/site.css" var="cssUrl" />
-<link rel="stylesheet" href="${cssUrl}" />
-</head>
-<body>
-	<header>
-		<h1>MVC Exercises - Views Part 2: Models</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="#">Link 1</a></li>
-			<li><a href="#">Link 2</a></li>
-		</ul>
-
-	</nav>
-	<section id="main-content-tiles">
 		<h1>Toy Department</h1>
 		<c:forEach var="product" items="${requestScope.productList}">
 
 			<div class="product-tile-div">
-				<img class="product-img"
+				<c:url var="productDetail" value="/productDetail">
+					<c:param name="productId" value="${product.productId}" />
+				</c:url> <a href="${productDetail}"> <img class="product-table-img"
 					src="img/<c:out value="${product.imageName}"/>"
-					alt="<c:out value="${product.imageName}"/>">
+					alt="<c:out value="${product.imageName}"/>"></a> 
 				<h4>
 					<c:out value="${product.name}" />
 					<c:if test="${product.topSeller}">
@@ -58,7 +40,5 @@
 			</div>
 		</c:forEach>
 
-
-	</section>
-</body>
-</html>
+<%@include file="common/footer.jspf" %>
+	

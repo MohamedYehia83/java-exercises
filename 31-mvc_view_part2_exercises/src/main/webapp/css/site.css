@@ -113,17 +113,20 @@ section {
 #main-content-tiles {
 	clear: both;
 	display: block;
-	width: 80%;
+	width: 90%;
 	margin: 20px auto;
 	vertical-align: top;
 	text-align: center;
 	min-height: 450px;
 	background-color: #FFF;
 	border-radius: 7px;
+	padding-bottom:20px;
 }
 
 .product-tile-div {
 	display: inline-block;
+	align-items: center;
+justify-content: center;
 }
 
 .product-table-rating-img {
@@ -137,21 +140,32 @@ section {
 
 #main-content-detail {
 	clear: both;
-	display: block;
-	width: 80%;
-	margin: 20px auto;
+	display: inline-block;
+	width: 90%;
+	margin: 20px auto ;
 	vertical-align: top;
 	min-height: 450px;
 	background-color: #FFF;
 	border-radius: 7px;
+	
+	
 }
 
 .product-detail-img-div {
 	display: inline;
-}
+	margin:left;
+	size: 10%;
+	padding-left:30px;
+	
+	}
 
 #product-detail-img {
-	weight: 400px;
+	weight: 200px;
+	display: flex;
+	flex-direction: left;
+	float:left;
+	padding-left:30px;
+	
 }
 
 .best-seller {
@@ -159,11 +173,12 @@ section {
 }
 
 .product-detail-info-div {
-	position: absolute;
-	display: inline;
+	position: left;
+	display: inline ;
 	word-wrap: break-all;
 	overflow-wrap: break-word;
 	word-break: break-word;
+	padding-right: 100px;
 	
 }
 

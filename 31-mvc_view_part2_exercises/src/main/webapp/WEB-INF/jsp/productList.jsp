@@ -1,33 +1,17 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<!DOCTYPE html>
-
-<html>
-<head>
-<meta name="viewport" content="width=device-width" />
-<title>Product List View</title>
-<c:url value="/css/site.css" var="cssUrl" />
-<link rel="stylesheet" href="${cssUrl}" />
-</head>
-<body>
-	<header>
-		<h1>MVC Exercises - Views Part 2: Models</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="#">Link 1</a></li>
-			<li><a href="#">Link 2</a></li>
-		</ul>
-
-	</nav>
-	<section id="main-content-list">
+<c:set var="pageTitle" value="Product List View"/>
+<%@include file="common/header.jspf" %>
+		
 		<h1>Toy Department</h1>
 
 		<c:forEach var="product" items="${requestScope.productList}">
 
 			<div class="product-div">
 				<div class="product-img-div">
+					
+					
+					
 					<c:url var="productDetail" value="/productDetail">
 						<c:param name="productId" value="${product.productId}" />
 					</c:url>
@@ -65,6 +49,4 @@
 		</c:forEach>
 
 
-	</section>
-</body>
-</html>
+	<%@include file="common/footer.jspf" %>
