@@ -13,5 +13,15 @@ public class CustomerSearchController {
 
     @Autowired
     private CustomerDao customerDao;
-
+    
+    @RequestMapping(path="/", method=RequestMethod.GET)
+    public String showCustomerSearchForm() {
+        return "customerList";
+    }
+    
+    @RequestMapping(path="/customerList", method=RequestMethod.GET)
+    public String searchCustomers(@RequestParam String search, @RequestParam String  sort, ModelMap modelHolder) {
+    	modelHolder.put("customers",customerDao.searchAndSortCustomers(search, sort)); 
+    	return "customerList";
+    }
 }

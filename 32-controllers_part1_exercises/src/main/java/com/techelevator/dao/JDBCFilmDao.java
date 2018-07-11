@@ -29,8 +29,9 @@ public class JDBCFilmDao implements FilmDao {
         List<Film> matchingFilms = new ArrayList<>();
         
         String filmSearchSql = "SELECT title, description, release_year, length, rating FROM film " +
-        "JOIN film_category ON film_category.film_id = film.film_id JOIN category ON category.category_id = film_category.category_id "+
-        "WHERE category.name = ? AND length BETWEEN ? AND ?";
+        "JOIN film_category ON film.film_id = film_category.film_id "+
+        	"JOIN category ON film_category.category_id = category.category_id "+
+        	"WHERE name = ? AND length BETWEEN ? AND ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(filmSearchSql, genre, minLength, maxLength);
         while(results.next()) {
             matchingFilms.add(mapRowToFilm(results));

@@ -15,14 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FilmSearchController {
 
     @Autowired
-    FilmDao filmDao;
-
+    private  FilmDao filmDao;
+	
+    @RequestMapping(path="/film", method=RequestMethod.GET)
     public String showFilmSearchForm() {
-        return null;
+        return "filmList";
     }
-
-    public String searchFilms() {
-        return null;
+    
+    @RequestMapping(path="/filmList", method=RequestMethod.GET)
+    public String searchFilms(@RequestParam String genre, @RequestParam(defaultValue="0") int minLength, @RequestParam(defaultValue="999") int maxLength, ModelMap modelHolder) {
+    	modelHolder.put("films",filmDao.getFilmsBetween(genre, minLength, maxLength)); 
+    	return "filmList";
     }
     
     
