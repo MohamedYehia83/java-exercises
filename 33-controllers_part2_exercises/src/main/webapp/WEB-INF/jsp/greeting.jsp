@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<title>Hello Spring MVC</title>
+		<link rel="stylesheet" href="css/site.css"></link>
 	</head>
 	<body>
 		<h1>Hello, <c:out value="${param.name}" />!</h1>

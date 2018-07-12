@@ -1,7 +1,5 @@
 package com.techelevator;
 
-import java.util.Map;
-
 import com.techelevator.dao.ActorDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
