@@ -1,23 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Squirrel Cigar Party</title>
-    <c:url value="/css/squirrel.css" var="cssHref" />
-    <link rel="stylesheet" href="${cssHref}">
-</head>
-
-<body>
-	
-    <header>
-
-        <h1>Squirrel Cigar Party For Dummies</h1>
-        <img src="img/forDummies.png" class="centered"/>
-    </header>
-
-<section class="centeredPanel">
+<%@ include file="common/header.jspf" %>
 	<h2><strong>Reviews for Squirrel Cigar Party For Dummies</strong></h2>
 	<c:url var="newReviewUrl" value="/newReview"/>
 	<span class="centered"> <a href="${newReviewUrl }">Leave a Review</a></span>
@@ -39,6 +22,5 @@
 		</c:forEach>
 		</ul>
 	
-</section>
-</body>
-</html>
+<%@ include file="common/footer.jspf" %>
+
